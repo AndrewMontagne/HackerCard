@@ -1,0 +1,7 @@
+/applet-playground-caps.jar
+/applet-playground.jar
+/tmp
+/bin
+*~
+*.iml
+/.idea
