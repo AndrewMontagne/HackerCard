@@ -37,6 +37,7 @@ Building applet @{package}.@{class}
 
   <target name="applets">
     <applet package="andrewmontagne.hackercard" class="HackerCard" pix="000001"/>
+    <applet package="andrewmontagne.hackercard" class="Wallet" rid="F234123456" pix="100001"/>
   </target>
 
 </project>
