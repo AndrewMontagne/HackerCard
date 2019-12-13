@@ -1,4 +1,4 @@
-# HackerCard
+# HackerCard ![](https://travis-ci.com/AndrewMontagne/HackerCard.svg?branch=master)
 
 Hacking around with JavaCard things!
 
