@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="applets" name="HackerCard build">
+<project basedir="." default="applets" name="HackerCard">
   <!-- Applet building dependencies -->
   <property name="JC222" value="ext/java_card_kit-2_2_2"/>
   <property name="JC303" value="ext/java_card_kit-3_0_3"/>
@@ -9,13 +9,34 @@
   <!-- ant-javacard task from javacard.pro -->
   <taskdef name="javacard" classname="pro.javacard.ant.JavaCard" classpath="ext/ant-javacard.jar"/>
 
-  <!-- All included applets -->
+  <macrodef name="applet">
+    <attribute name="class"/>
+    <attribute name="rid" default="FF4841434B"/> <!-- FF followed by HACK in hex-encoded ASCII -->
+    <attribute name="pix"/>
+    <attribute name="package"/>
+    <attribute name="capName" default="@{class}"/>
+    <sequential>
+      <echo level="info">
+Building applet @{package}.@{class}
+      </echo>
+      <exec executable="sed" inputstring="${package}" outputproperty="packagepath">
+        <arg value="s/./\//g"/>
+      </exec>
+      <javacard jckit="${JC222}">
+        <cap output="bin/@{capName}.cap2" sources="src/${packagepath}">
+          <applet class="@{package}.@{class}" aid="@{rid}@{pix}"/>
+        </cap>
+      </javacard>
+      <javacard jckit="${JC303}">
+        <cap output="bin/@{capName}.cap3" sources="src/${packagepath}">
+          <applet class="@{package}.@{class}" aid="@{rid}@{pix}"/>
+        </cap>
+      </javacard>
+    </sequential>
+  </macrodef>
+
   <target name="applets">
-    <javacard jckit="${JC222}">
-      <cap output="bin/HackerCard.cap" sources="src/andrewmontagne/hackercard">
-        <applet class="andrewmontagne.hackercard.HackerCard" aid="FF4841434B000001"/>
-      </cap>
-    </javacard>
+    <applet package="andrewmontagne.hackercard" class="HackerCard" pix="000001"/>
   </target>
 
 </project>

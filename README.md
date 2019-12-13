@@ -10,9 +10,11 @@ Hacking around with JavaCard things!
  
 ### Building
 
- * Invoke `ant` in the project root.
+To build the project, invoke `ant` in the root of the project.
 
-## Acknowledgements
+Binaries will appear in `./bin` in both JavaCard 2 and 3 versions (`*.cap2` and `*.cap3` respectively)
+
+### Acknowledgements
 
 This project is based upon commit `468ea76` of the [AppletPlayground](https://github.com/martinpaljak/AppletPlayground) project by [Martin Paljak](https://github.com/martinpaljak), and includes the following depenencies:
 
