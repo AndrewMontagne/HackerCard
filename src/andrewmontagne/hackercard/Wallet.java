@@ -8,7 +8,7 @@
  */
 
 // Refer to http://lig-membres.imag.fr/donsez/ujf/messi/sc/examples/javaworld/jw-07-javacard_p.html
-// Example gp command: 
+// Example gp command:
 // $ gp -d -a 00A4040008F234123456100001 -a B02000000412345678 -a B03000000122 -a B050000002 -a B04000000120 -a B050000002
 
 package andrewmontagne.hackercard;
@@ -30,7 +30,7 @@ public class Wallet extends Applet {
     // maximum balance
     final static short MAX_BALANCE = 0x7FFF;
     // maximum transaction amount
-    final static byte MAX_TRANSACTION_AMOUNT = 127;
+    final static short MAX_TRANSACTION_AMOUNT = 0x7FFF;
     
     // maximum number of incorrect tries before the
     // PIN is blocked

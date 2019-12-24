@@ -11,8 +11,8 @@
 
   <macrodef name="applet">
     <attribute name="class"/>
-    <attribute name="rid" default="FF4841434B"/> <!-- FF followed by HACK in hex-encoded ASCII -->
-    <attribute name="pix"/>
+    <attribute name="rid" default="0000000000"/>
+    <attribute name="pix" default="00"/>
     <attribute name="package"/>
     <attribute name="capName" default="@{class}"/>
     <sequential>
@@ -36,8 +36,16 @@ Building applet @{package}.@{class}
   </macrodef>
 
   <target name="applets">
-    <applet package="andrewmontagne.hackercard" class="HackerCard" pix="000001"/>
-    <applet package="andrewmontagne.hackercard" class="Wallet" rid="F234123456" pix="100001"/>
+    <applet package="andrewmontagne.hackercard" class="HackerCard" rid="FF4841434B"/>
+    <applet package="andrewmontagne.filesystem" class="Filesystem" rid="FF4841434C"/>
+
+    <applet package="andrewmontagne.hackercard" class="Wallet" rid="F234123456"/>
   </target>
+  <target name="filesystem">
+      <applet package="andrewmontagne.filesystem" class="Filesystem" rid="FF4841434C"/>
+  </target>
+    <target name="capemu">
+        <applet package="andrewmontagne.hackercard" class="CAPEmu" rid="A000000004" pix="8002"/>
+    </target>
 
 </project>
